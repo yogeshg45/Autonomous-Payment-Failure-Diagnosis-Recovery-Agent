@@ -1,0 +1,72 @@
+{
+  "generated_at": "2026-09-01T08:09:04.103189",
+  "total_transactions_processed": 750,
+  "total_failed_transactions": 134,
+  "degradation_alerts": [
+    {
+      "at_transaction": 155,
+      "timestamp": "2024-01-16 00:50:00",
+      "baseline_success_rate": 100.0,
+      "current_success_rate": 84.0,
+      "drop_points": 16.0
+    },
+    {
+      "at_transaction": 275,
+      "timestamp": "2024-01-16 20:40:00",
+      "baseline_success_rate": 100.0,
+      "current_success_rate": 84.0,
+      "drop_points": 16.0
+    },
+    {
+      "at_transaction": 425,
+      "timestamp": "2024-01-17 20:40:00",
+      "baseline_success_rate": 100.0,
+      "current_success_rate": 84.0,
+      "drop_points": 16.0
+    },
+    {
+      "at_transaction": 578,
+      "timestamp": "2024-01-18 21:10:00",
+      "baseline_success_rate": 100.0,
+      "current_success_rate": 84.0,
+      "drop_points": 16.0
+    },
+    {
+      "at_transaction": 728,
+      "timestamp": "2024-01-19 21:10:00",
+      "baseline_success_rate": 100.0,
+      "current_success_rate": 84.0,
+      "drop_points": 16.0
+    }
+  ],
+  "root_cause_breakdown": {
+    "CUSTOMER_SIDE": {
+      "failed": 61,
+      "recovered": 20,
+      "amount_recovered": 113987,
+      "amount_at_risk": 350092
+    },
+    "SYSTEM_SIDE": {
+      "failed": 71,
+      "recovered": 40,
+      "amount_recovered": 207731,
+      "amount_at_risk": 390323
+    },
+    "MERCHANT_SIDE": {
+      "failed": 2,
+      "recovered": 0,
+      "amount_recovered": 0,
+      "amount_at_risk": 13671
+    }
+  },
+  "total_transactions_recovered": 60,
+  "total_amount_at_risk_inr": 754086,
+  "total_amount_recovered_inr": 321718,
+  "recovery_rate_pct": 44.8,
+  "total_escalations": 74,
+  "stopping_rules_enforced": {
+    "CUSTOMER_SIDE_max_retries": 2,
+    "SYSTEM_SIDE_max_retries": 3,
+    "MERCHANT_SIDE_max_retries": 0
+  }
+}

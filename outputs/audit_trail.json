@@ -1,0 +1,3186 @@
+[
+  {
+    "transaction_id": "txn_000143",
+    "timestamp": "2024-01-15 23:40:00",
+    "amount": 9445,
+    "payment_method": "netbanking",
+    "error_code": "incorrect_cvv",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 9445,
+    "predicted_recovery_prob": 0.41,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: Incorrect CVV entered. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "ea8208fad8349e04eef0e9d9"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000144",
+    "timestamp": "2024-01-15 23:50:00",
+    "amount": 6085,
+    "payment_method": "upi",
+    "error_code": "authentication_failed",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.472,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: 3D secure or OTP authentication failed. Please try again using card.",
+    "idempotency_keys_used": [
+      "ee94176c78777ba1f24fb189",
+      "8b245237c40fba8c3f00e272"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000145",
+    "timestamp": "2024-01-16 00:00:00",
+    "amount": 1400,
+    "payment_method": "card",
+    "error_code": "transaction_daily_limit_exceeded",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 1400,
+    "predicted_recovery_prob": 0.555,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: Customer has exceeded daily transaction limit. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "bbdad90a34f46e20e142fb3e",
+      "01220ff63dc3512aa5b468e4"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000146",
+    "timestamp": "2024-01-16 00:10:00",
+    "amount": 2193,
+    "payment_method": "wallet",
+    "error_code": "issuer_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 2193,
+    "predicted_recovery_prob": 0.632,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "57f50cceffc2c57dfbe4bdfa"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000147",
+    "timestamp": "2024-01-16 00:20:00",
+    "amount": 4185,
+    "payment_method": "wallet",
+    "error_code": "invalid_request",
+    "root_cause": "MERCHANT_SIDE",
+    "action_taken": "NO_RETRY",
+    "max_retries_allowed": 0,
+    "attempts_made": 0,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": null,
+    "escalated": true,
+    "escalation_reason": "STOP immediately. Flag for merchant/support review \u2014 no retry can fix a config/business error.",
+    "customer_message": null,
+    "idempotency_keys_used": [],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000148",
+    "timestamp": "2024-01-16 00:30:00",
+    "amount": 4997,
+    "payment_method": "upi",
+    "error_code": "bank_not_available",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.584,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "a07be150d83f97b4b0164da6",
+      "305bd27e8739c91ac4bd29a6",
+      "ebd35286d179b1360a40e4d5"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000149",
+    "timestamp": "2024-01-16 00:40:00",
+    "amount": 7965,
+    "payment_method": "upi",
+    "error_code": "transaction_limit_exceeded",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.369,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer has exceeded credit/debit limit on card. Please try again using card.",
+    "idempotency_keys_used": [
+      "3ba354f87f882756e1863b40",
+      "4020a85f4cd09d7d2e0672b4"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000150",
+    "timestamp": "2024-01-16 00:50:00",
+    "amount": 9486,
+    "payment_method": "wallet",
+    "error_code": "invalid_order_id",
+    "root_cause": "MERCHANT_SIDE",
+    "action_taken": "NO_RETRY",
+    "max_retries_allowed": 0,
+    "attempts_made": 0,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": null,
+    "escalated": true,
+    "escalation_reason": "STOP immediately. Flag for merchant/support review \u2014 no retry can fix a config/business error.",
+    "customer_message": null,
+    "idempotency_keys_used": [],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000268",
+    "timestamp": "2024-01-16 19:30:00",
+    "amount": 4335,
+    "payment_method": "netbanking",
+    "error_code": "card_expired",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.519,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: The card has expired. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "a8f824afb1f4147e3657feae",
+      "c9beced459ca8bfacf0372fd"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000269",
+    "timestamp": "2024-01-16 19:40:00",
+    "amount": 8178,
+    "payment_method": "wallet",
+    "error_code": "transaction_daily_limit_exceeded",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.397,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer has exceeded daily transaction limit. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "502783dd492095d0d7aa5e61",
+      "2164770c10850e820314b65e"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000270",
+    "timestamp": "2024-01-16 19:50:00",
+    "amount": 4920,
+    "payment_method": "upi",
+    "error_code": "payment_risk_check_failed",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 4920,
+    "predicted_recovery_prob": 0.489,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: Payment declined due to risk checks. Please try again using card.",
+    "idempotency_keys_used": [
+      "e1ce6dd9340b339393753af0",
+      "a497553757228bddc83d942a"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000271",
+    "timestamp": "2024-01-16 20:00:00",
+    "amount": 7684,
+    "payment_method": "card",
+    "error_code": "payment_timed_out",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.46,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer did not complete within specified time. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "1a743120a77839f793743fba",
+      "8db9537cd70d9063385a5e12"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000272",
+    "timestamp": "2024-01-16 20:10:00",
+    "amount": 8560,
+    "payment_method": "card",
+    "error_code": "bank_not_available",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.587,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "6934fdeac5e228726de20fed",
+      "896d59fe5d180949113f0612",
+      "3ea5b7845d2c5d03b3383d21"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000273",
+    "timestamp": "2024-01-16 20:20:00",
+    "amount": 9337,
+    "payment_method": "netbanking",
+    "error_code": "transaction_daily_limit_exceeded",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 9337,
+    "predicted_recovery_prob": 0.405,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: Customer has exceeded daily transaction limit. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "b1d97c2e2773a33b0c2a5dae"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000274",
+    "timestamp": "2024-01-16 20:30:00",
+    "amount": 4993,
+    "payment_method": "wallet",
+    "error_code": "payment_declined_due_to_high_traffic",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 4993,
+    "predicted_recovery_prob": 0.62,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "8dd1a64f3ff76151c61ee7e0"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000275",
+    "timestamp": "2024-01-16 20:40:00",
+    "amount": 9327,
+    "payment_method": "upi",
+    "error_code": "incorrect_cvv",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.389,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Incorrect CVV entered. Please try again using card.",
+    "idempotency_keys_used": [
+      "9022c81d15adbc982ece11f4",
+      "b38670a2edd33a38c12f3a5b"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000276",
+    "timestamp": "2024-01-16 20:50:00",
+    "amount": 6568,
+    "payment_method": "netbanking",
+    "error_code": "otp_expired",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.469,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: OTP has expired. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "4daa479cab5d4b83d5d66ad3",
+      "02450ac9fb22b2ec9aa2a62b"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000277",
+    "timestamp": "2024-01-16 21:00:00",
+    "amount": 9022,
+    "payment_method": "upi",
+    "error_code": "transaction_daily_limit_exceeded",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 9022,
+    "predicted_recovery_prob": 0.399,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: Customer has exceeded daily transaction limit. Please try again using card.",
+    "idempotency_keys_used": [
+      "8e6e5261f8a0302937f138c4",
+      "d4690fc07b558919eb504388"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000278",
+    "timestamp": "2024-01-16 21:10:00",
+    "amount": 6446,
+    "payment_method": "wallet",
+    "error_code": "incorrect_otp",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.442,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer entered incorrect OTP. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "4ba4d71f3cee8ac881b7e06f",
+      "ffbf2ca456ffedb99bd4527e"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000279",
+    "timestamp": "2024-01-16 21:20:00",
+    "amount": 4912,
+    "payment_method": "wallet",
+    "error_code": "payment_failed",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.624,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "cbde6285e277c557ed74264b",
+      "cfe5136420ffddc6d9f092e0",
+      "2a3bf5004e9dd7373dac5a0a"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000280",
+    "timestamp": "2024-01-16 21:30:00",
+    "amount": 1715,
+    "payment_method": "netbanking",
+    "error_code": "server_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": true,
+    "money_recovered": 1715,
+    "predicted_recovery_prob": 0.719,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "4eedbdf80cd0c51f1b57f26c",
+      "9114eca313d17a4b8a52f107",
+      "8306c4b2020572f1cb7a630e"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000281",
+    "timestamp": "2024-01-16 21:40:00",
+    "amount": 7325,
+    "payment_method": "upi",
+    "error_code": "otp_expired",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.438,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: OTP has expired. Please try again using card.",
+    "idempotency_keys_used": [
+      "23307348a0d38a424c81438c",
+      "d5fb331fac1ea41dcbe6992b"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000282",
+    "timestamp": "2024-01-16 21:50:00",
+    "amount": 9229,
+    "payment_method": "netbanking",
+    "error_code": "gateway_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.558,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "33a520e78bdc0a6720091520",
+      "045aacc23953ab98c32c5878",
+      "1ea5e2d8a4270910113db2e4"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000283",
+    "timestamp": "2024-01-16 22:00:00",
+    "amount": 2633,
+    "payment_method": "wallet",
+    "error_code": "payment_declined_due_to_high_traffic",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 2633,
+    "predicted_recovery_prob": 0.675,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "eb7f9e1fe5dd60a380d02566",
+      "9ba48f90d49497da8b6109c1"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10
+    ]
+  },
+  {
+    "transaction_id": "txn_000284",
+    "timestamp": "2024-01-16 22:10:00",
+    "amount": 3529,
+    "payment_method": "card",
+    "error_code": "otp_expired",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.563,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: OTP has expired. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "b13af498fd9727f8919a685d",
+      "9102d2b7f1909bece4af855a"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000285",
+    "timestamp": "2024-01-16 22:20:00",
+    "amount": 6546,
+    "payment_method": "wallet",
+    "error_code": "transaction_daily_limit_exceeded",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.442,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer has exceeded daily transaction limit. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "8734e28da6ed4cb3168cdc39",
+      "5396585bfb4ca0dea9ac3c25"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000286",
+    "timestamp": "2024-01-16 22:30:00",
+    "amount": 6188,
+    "payment_method": "wallet",
+    "error_code": "server_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 6188,
+    "predicted_recovery_prob": 0.598,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "6c53f46925080473b20896cd",
+      "218248dfd4ffa654e08546e3"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10
+    ]
+  },
+  {
+    "transaction_id": "txn_000287",
+    "timestamp": "2024-01-16 22:40:00",
+    "amount": 4846,
+    "payment_method": "netbanking",
+    "error_code": "debit_instrument_blocked",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.515,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: The card has been blocked by issuer or customer. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "1949ab9366a83fa2804f0857",
+      "37f0d696ab42f9f69cabea8d"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000288",
+    "timestamp": "2024-01-16 22:50:00",
+    "amount": 2612,
+    "payment_method": "card",
+    "error_code": "otp_expired",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.584,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: OTP has expired. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "5ec66724f37996344d8a6957",
+      "1f72be81eac8905e2c2272f5"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000289",
+    "timestamp": "2024-01-16 23:00:00",
+    "amount": 1474,
+    "payment_method": "card",
+    "error_code": "transaction_daily_limit_exceeded",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 1474,
+    "predicted_recovery_prob": 0.612,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: Customer has exceeded daily transaction limit. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "f5cb2039ceb0121a1f31d2ff"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000290",
+    "timestamp": "2024-01-16 23:10:00",
+    "amount": 6873,
+    "payment_method": "netbanking",
+    "error_code": "transaction_daily_limit_exceeded",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 6873,
+    "predicted_recovery_prob": 0.47,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: Customer has exceeded daily transaction limit. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "a3623903e8042d0aa9be3b06"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000291",
+    "timestamp": "2024-01-16 23:20:00",
+    "amount": 7751,
+    "payment_method": "upi",
+    "error_code": "payment_timed_out",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 7751,
+    "predicted_recovery_prob": 0.433,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: Customer did not complete within specified time. Please try again using card.",
+    "idempotency_keys_used": [
+      "50b9deb1c76f0d4ecc9f29b2"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000292",
+    "timestamp": "2024-01-16 23:30:00",
+    "amount": 7267,
+    "payment_method": "upi",
+    "error_code": "incorrect_cvv",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 7267,
+    "predicted_recovery_prob": 0.444,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: Incorrect CVV entered. Please try again using card.",
+    "idempotency_keys_used": [
+      "07552ae35df572ba65f31074"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000293",
+    "timestamp": "2024-01-16 23:40:00",
+    "amount": 4804,
+    "payment_method": "wallet",
+    "error_code": "gateway_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": true,
+    "money_recovered": 4804,
+    "predicted_recovery_prob": 0.631,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "be20e315974308c375f80488",
+      "8f07de4ddc865fe7e5e34eeb",
+      "9f17e8a02d84aac28b856683"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000294",
+    "timestamp": "2024-01-16 23:50:00",
+    "amount": 1153,
+    "payment_method": "wallet",
+    "error_code": "payment_risk_check_failed",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.571,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Payment declined due to risk checks. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "9ead9c132a3b5e39ca5f694d",
+      "c24c909c883b4d8ca4e7031c"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000295",
+    "timestamp": "2024-01-17 00:00:00",
+    "amount": 2210,
+    "payment_method": "wallet",
+    "error_code": "insufficient_funds",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 2210,
+    "predicted_recovery_prob": 0.486,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: Customer does not have sufficient funds. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "4fd789581980640920a0e45f",
+      "0d23dd143770dd905a1110ec"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000296",
+    "timestamp": "2024-01-17 00:10:00",
+    "amount": 7951,
+    "payment_method": "netbanking",
+    "error_code": "issuer_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.532,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "ea9410338c78f2c1de2494c8",
+      "1abfd17edc325dbfb8460618",
+      "44a362c12a148519a4d6f09b"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000297",
+    "timestamp": "2024-01-17 00:20:00",
+    "amount": 7302,
+    "payment_method": "wallet",
+    "error_code": "payment_failed",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.514,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "642eaee98bc461044103c9cb",
+      "c1c4081eea3d0c82d8e376dc",
+      "9be29f9f6702c36bf0b0aaba"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000298",
+    "timestamp": "2024-01-17 00:30:00",
+    "amount": 6881,
+    "payment_method": "netbanking",
+    "error_code": "incorrect_cvv",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.41,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Incorrect CVV entered. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "14e66a0ad26d7e6d0eaee944",
+      "04fa31217ed3aa85e527b467"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000299",
+    "timestamp": "2024-01-17 00:40:00",
+    "amount": 7484,
+    "payment_method": "netbanking",
+    "error_code": "payment_risk_check_failed",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.396,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Payment declined due to risk checks. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "1aaa017d9f3afe0a3b494af2",
+      "e0c76910ba68bd90baa1f7d5"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000300",
+    "timestamp": "2024-01-17 00:50:00",
+    "amount": 1803,
+    "payment_method": "wallet",
+    "error_code": "payment_risk_check_failed",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.495,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Payment declined due to risk checks. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "e588e8528cdd6c0f8f97f583",
+      "b2c582f65c8e6025cd2dda5d"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000418",
+    "timestamp": "2024-01-17 19:30:00",
+    "amount": 2257,
+    "payment_method": "card",
+    "error_code": "transaction_daily_limit_exceeded",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.584,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer has exceeded daily transaction limit. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "878a038239d3789dc09ea720",
+      "7af28e5f01dac61b94102680"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000419",
+    "timestamp": "2024-01-17 19:40:00",
+    "amount": 1672,
+    "payment_method": "wallet",
+    "error_code": "incorrect_cvv",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 1672,
+    "predicted_recovery_prob": 0.549,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: Incorrect CVV entered. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "64b37939054f64756c1f16a3",
+      "b47ec40bfcf851a490656f65"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000420",
+    "timestamp": "2024-01-17 19:50:00",
+    "amount": 9214,
+    "payment_method": "upi",
+    "error_code": "authentication_failed",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 9214,
+    "predicted_recovery_prob": 0.389,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: 3D secure or OTP authentication failed. Please try again using card.",
+    "idempotency_keys_used": [
+      "439a5ca513fc454e3a212ee3",
+      "5db6b2d12ff25dd543c42b5b"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000421",
+    "timestamp": "2024-01-17 20:00:00",
+    "amount": 2381,
+    "payment_method": "upi",
+    "error_code": "incorrect_otp",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.551,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer entered incorrect OTP. Please try again using card.",
+    "idempotency_keys_used": [
+      "4fa1f949f578dedf874eaa13",
+      "97157ede7d0793f2817d2520"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000422",
+    "timestamp": "2024-01-17 20:10:00",
+    "amount": 8199,
+    "payment_method": "upi",
+    "error_code": "authentication_failed",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.415,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: 3D secure or OTP authentication failed. Please try again using card.",
+    "idempotency_keys_used": [
+      "1a02eabb42d2b3bec0637d90",
+      "3d108617b33caf3d82d19e4f"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000423",
+    "timestamp": "2024-01-17 20:20:00",
+    "amount": 7347,
+    "payment_method": "wallet",
+    "error_code": "transaction_daily_limit_exceeded",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.418,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer has exceeded daily transaction limit. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "769b99844d9936b249136c90",
+      "4c11d780235ebdfb470c251a"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000424",
+    "timestamp": "2024-01-17 20:30:00",
+    "amount": 6482,
+    "payment_method": "card",
+    "error_code": "card_expired",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 6482,
+    "predicted_recovery_prob": 0.488,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: The card has expired. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "0a3ef9aac97b0ad61135b836"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000425",
+    "timestamp": "2024-01-17 20:40:00",
+    "amount": 7333,
+    "payment_method": "netbanking",
+    "error_code": "payment_risk_check_failed",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.451,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Payment declined due to risk checks. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "04567268187d605788b60d34",
+      "9b4fa9e3f759822eb8cf83cb"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000426",
+    "timestamp": "2024-01-17 20:50:00",
+    "amount": 3463,
+    "payment_method": "netbanking",
+    "error_code": "payment_risk_check_failed",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.543,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Payment declined due to risk checks. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "5ae1152253d65cb5d9387791",
+      "5bfdac8e66a8d8d95640292e"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000427",
+    "timestamp": "2024-01-17 21:00:00",
+    "amount": 6731,
+    "payment_method": "netbanking",
+    "error_code": "insufficient_funds",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.468,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer does not have sufficient funds. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "dc349bfe963a0bf04682d86d",
+      "262f35bc60dff221d4fdb940"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000428",
+    "timestamp": "2024-01-17 21:10:00",
+    "amount": 6072,
+    "payment_method": "wallet",
+    "error_code": "debit_instrument_blocked",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.45,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: The card has been blocked by issuer or customer. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "98672d6a09b02e1540c936b4",
+      "2aa635d64a258cdad901ebf2"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000429",
+    "timestamp": "2024-01-17 21:20:00",
+    "amount": 7937,
+    "payment_method": "netbanking",
+    "error_code": "bank_not_available",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 7937,
+    "predicted_recovery_prob": 0.588,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "09fc2e5083186a401bac7408",
+      "fd500340e4d2d41932076015"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10
+    ]
+  },
+  {
+    "transaction_id": "txn_000430",
+    "timestamp": "2024-01-17 21:30:00",
+    "amount": 4509,
+    "payment_method": "netbanking",
+    "error_code": "insufficient_funds",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.521,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer does not have sufficient funds. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "5b6d34946985f804e4d9548f",
+      "8b5b97181942755cae05611e"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000431",
+    "timestamp": "2024-01-17 21:40:00",
+    "amount": 3538,
+    "payment_method": "card",
+    "error_code": "insufficient_funds",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.56,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer does not have sufficient funds. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "5296fdab71d27cf825e917c4",
+      "c58cf8c760bdc08e709ce8c2"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000432",
+    "timestamp": "2024-01-17 21:50:00",
+    "amount": 9317,
+    "payment_method": "card",
+    "error_code": "bank_not_available",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.572,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "3db58dc455faf4bb8258c806",
+      "4410397ca5a11316f72fe28c",
+      "6d5d12af5a0af7492c80e3cb"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000433",
+    "timestamp": "2024-01-17 22:00:00",
+    "amount": 7172,
+    "payment_method": "upi",
+    "error_code": "gateway_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 7172,
+    "predicted_recovery_prob": 0.592,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "3fa3e2bfe2f9b197ed8db213",
+      "37369030b9e3ca6b8c1ee42d"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10
+    ]
+  },
+  {
+    "transaction_id": "txn_000434",
+    "timestamp": "2024-01-17 22:10:00",
+    "amount": 3712,
+    "payment_method": "wallet",
+    "error_code": "incorrect_cvv",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 3712,
+    "predicted_recovery_prob": 0.509,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: Incorrect CVV entered. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "fcb0c3e4f1c8c3afbd3a6fde"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000435",
+    "timestamp": "2024-01-17 22:20:00",
+    "amount": 4891,
+    "payment_method": "wallet",
+    "error_code": "payment_risk_check_failed",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 4891,
+    "predicted_recovery_prob": 0.481,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: Payment declined due to risk checks. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "76009e2249533dbf1c9c0ae0",
+      "3b58b64940ff37f6eaa71f2f"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000436",
+    "timestamp": "2024-01-17 22:30:00",
+    "amount": 4833,
+    "payment_method": "upi",
+    "error_code": "authentication_failed",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.499,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: 3D secure or OTP authentication failed. Please try again using card.",
+    "idempotency_keys_used": [
+      "1938376d28b0bcddb0cff0d9",
+      "7bea2d43c68680ab0689efa9"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000437",
+    "timestamp": "2024-01-17 22:40:00",
+    "amount": 4178,
+    "payment_method": "netbanking",
+    "error_code": "payment_declined_due_to_high_traffic",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 4178,
+    "predicted_recovery_prob": 0.673,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "a3b7b0b9e310b1c1b3c33f0f",
+      "84cfb420c1ee2ed36a1f059e"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10
+    ]
+  },
+  {
+    "transaction_id": "txn_000438",
+    "timestamp": "2024-01-17 22:50:00",
+    "amount": 7256,
+    "payment_method": "wallet",
+    "error_code": "transaction_daily_limit_exceeded",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 7256,
+    "predicted_recovery_prob": 0.426,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: Customer has exceeded daily transaction limit. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "edda6e52aab09af6fa103caf"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000439",
+    "timestamp": "2024-01-17 23:00:00",
+    "amount": 5096,
+    "payment_method": "card",
+    "error_code": "gateway_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": true,
+    "money_recovered": 5096,
+    "predicted_recovery_prob": 0.671,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "8f77fcaed9ce95ec8079b66d",
+      "b86c951bc788cf2a000b10d7",
+      "ad25e3ca341e01e3a4efb569"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000440",
+    "timestamp": "2024-01-17 23:10:00",
+    "amount": 9452,
+    "payment_method": "card",
+    "error_code": "bank_not_available",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.574,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "3ad9355fc5a82d04e45a0cc7",
+      "b7c4e27f13f632430b283385",
+      "c39842cd70f1cee6a7afbe46"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000441",
+    "timestamp": "2024-01-17 23:20:00",
+    "amount": 5469,
+    "payment_method": "wallet",
+    "error_code": "insufficient_funds",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.47,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer does not have sufficient funds. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "fe37235da350c9475a8ccc54",
+      "1fa80d38f4b783cc38ca3b35"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000442",
+    "timestamp": "2024-01-17 23:30:00",
+    "amount": 2502,
+    "payment_method": "upi",
+    "error_code": "otp_expired",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.556,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: OTP has expired. Please try again using card.",
+    "idempotency_keys_used": [
+      "09427dd88d948790c9ac1aa0",
+      "d0d946bdbe59ab57e179f26e"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000443",
+    "timestamp": "2024-01-17 23:40:00",
+    "amount": 7797,
+    "payment_method": "card",
+    "error_code": "bank_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 7797,
+    "predicted_recovery_prob": 0.612,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "30b41bc5a8760c433b82c515"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000444",
+    "timestamp": "2024-01-17 23:50:00",
+    "amount": 7326,
+    "payment_method": "card",
+    "error_code": "transaction_limit_exceeded",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.476,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer has exceeded credit/debit limit on card. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "74f05e5417ed4e82190177a5",
+      "2c08497fe95a181ac00f19e7"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000445",
+    "timestamp": "2024-01-18 00:00:00",
+    "amount": 2623,
+    "payment_method": "netbanking",
+    "error_code": "incorrect_otp",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.509,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer entered incorrect OTP. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "0c97d37f05ce1b1ec0cfe5a6",
+      "675bcae7f35c595a58f6cb32"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000446",
+    "timestamp": "2024-01-18 00:10:00",
+    "amount": 8740,
+    "payment_method": "upi",
+    "error_code": "transaction_daily_limit_exceeded",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.353,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer has exceeded daily transaction limit. Please try again using card.",
+    "idempotency_keys_used": [
+      "b958dda8c3dc516d074facea",
+      "c2fdd1865a1140148188f6f2"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000447",
+    "timestamp": "2024-01-18 00:20:00",
+    "amount": 2298,
+    "payment_method": "card",
+    "error_code": "card_expired",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 2298,
+    "predicted_recovery_prob": 0.534,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: The card has expired. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "7664155fb2c3c45bd1e68576"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000448",
+    "timestamp": "2024-01-18 00:30:00",
+    "amount": 9991,
+    "payment_method": "wallet",
+    "error_code": "insufficient_funds",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.312,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer does not have sufficient funds. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "43a9d7f57d20e9dbb893e477",
+      "c2903608aef3cb00b93b5260"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000449",
+    "timestamp": "2024-01-18 00:40:00",
+    "amount": 5934,
+    "payment_method": "card",
+    "error_code": "transaction_limit_exceeded",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.448,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer has exceeded credit/debit limit on card. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "ac4fd437ca2a86a9df087f4f",
+      "62ceac5123dd74516430e0f9"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000450",
+    "timestamp": "2024-01-18 00:50:00",
+    "amount": 8489,
+    "payment_method": "card",
+    "error_code": "payment_risk_check_failed",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 8489,
+    "predicted_recovery_prob": 0.389,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: Payment declined due to risk checks. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "8eb433509fd8dfbd9db1f597",
+      "5abd33a18fa13fb8989353c4"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000571",
+    "timestamp": "2024-01-18 20:00:00",
+    "amount": 9221,
+    "payment_method": "wallet",
+    "error_code": "server_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.522,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "5a1dee13ea01d2b9a47e371a",
+      "02c3724d765d1a7398776012",
+      "fb03db4aa8aae133fdb86568"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000572",
+    "timestamp": "2024-01-18 20:10:00",
+    "amount": 6325,
+    "payment_method": "wallet",
+    "error_code": "payment_failed",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.59,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "06c2c23e0351b8833a30f888",
+      "66a022523bb06016f2408d8b",
+      "101ec8ebf2ec27000b90d130"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000573",
+    "timestamp": "2024-01-18 20:20:00",
+    "amount": 8531,
+    "payment_method": "netbanking",
+    "error_code": "gateway_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": true,
+    "money_recovered": 8531,
+    "predicted_recovery_prob": 0.571,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "40442bd47d0e155629d10a84",
+      "3e23fe07015ba158cea09ca8",
+      "0a5611cf2ef6cdbc9701f106"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000574",
+    "timestamp": "2024-01-18 20:30:00",
+    "amount": 8932,
+    "payment_method": "upi",
+    "error_code": "issuer_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 8932,
+    "predicted_recovery_prob": 0.546,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "af0ba91a24b156e2acdfb121"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000575",
+    "timestamp": "2024-01-18 20:40:00",
+    "amount": 4684,
+    "payment_method": "netbanking",
+    "error_code": "issuer_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 4684,
+    "predicted_recovery_prob": 0.657,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "ec6bd705ed71054ff1ce05ff"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000576",
+    "timestamp": "2024-01-18 20:50:00",
+    "amount": 6194,
+    "payment_method": "wallet",
+    "error_code": "payment_declined_due_to_high_traffic",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 6194,
+    "predicted_recovery_prob": 0.593,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "9b27b86b0c0e837d9a37271f",
+      "e6434d6271a0385eb7bfc3eb"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10
+    ]
+  },
+  {
+    "transaction_id": "txn_000577",
+    "timestamp": "2024-01-18 21:00:00",
+    "amount": 5715,
+    "payment_method": "card",
+    "error_code": "issuer_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.653,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "105d9bd7b2e0d1083ec6978b",
+      "b844f0d6a9a2cdc07cae410a",
+      "037acc36d9be9b275a32fe9a"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000578",
+    "timestamp": "2024-01-18 21:10:00",
+    "amount": 6654,
+    "payment_method": "upi",
+    "error_code": "server_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 6654,
+    "predicted_recovery_prob": 0.601,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "a0728e5c5bb9102761ae1ecf"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000579",
+    "timestamp": "2024-01-18 21:20:00",
+    "amount": 6674,
+    "payment_method": "wallet",
+    "error_code": "bank_not_available",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.584,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "5f689bc727b0ccf93f0475f5",
+      "ab3f3a88e9060f0170ae2d55",
+      "f3f9cd51c9aca7f170b50a79"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000580",
+    "timestamp": "2024-01-18 21:30:00",
+    "amount": 4310,
+    "payment_method": "netbanking",
+    "error_code": "payment_failed",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 4310,
+    "predicted_recovery_prob": 0.667,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "252f6adc918e07a06c3a4abd",
+      "96cd795573b55901ee78a48b"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10
+    ]
+  },
+  {
+    "transaction_id": "txn_000581",
+    "timestamp": "2024-01-18 21:40:00",
+    "amount": 4972,
+    "payment_method": "card",
+    "error_code": "payment_failed",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.668,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "3cf4fab4f34aa01c58bb7c58",
+      "e42c9669ef9f749fa2d771c2",
+      "a2598abb4ca7ee11ec241f48"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000582",
+    "timestamp": "2024-01-18 21:50:00",
+    "amount": 1860,
+    "payment_method": "card",
+    "error_code": "payment_failed",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 1860,
+    "predicted_recovery_prob": 0.73,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "52da5780c34f10c2d074da32"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000583",
+    "timestamp": "2024-01-18 22:00:00",
+    "amount": 2647,
+    "payment_method": "upi",
+    "error_code": "payment_declined_due_to_high_traffic",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.689,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "f95d30d0db83fede096517f7",
+      "5a9ef293704f4cd95c84fdf4",
+      "b402d804141666dc1c7cca3d"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000584",
+    "timestamp": "2024-01-18 22:10:00",
+    "amount": 7666,
+    "payment_method": "wallet",
+    "error_code": "insufficient_funds",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.416,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer does not have sufficient funds. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "2ac4726d2d80efb0359e5196",
+      "23f0024134c82cc606b177e8"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000585",
+    "timestamp": "2024-01-18 22:20:00",
+    "amount": 6262,
+    "payment_method": "netbanking",
+    "error_code": "issuer_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 6262,
+    "predicted_recovery_prob": 0.628,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "3d418f26b131de8f77951128"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000586",
+    "timestamp": "2024-01-18 22:30:00",
+    "amount": 4804,
+    "payment_method": "card",
+    "error_code": "debit_instrument_blocked",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 4804,
+    "predicted_recovery_prob": 0.533,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: The card has been blocked by issuer or customer. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "6cf570d1addbd552f57ce9fe",
+      "0b25aa2ea8077402987407a3"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000587",
+    "timestamp": "2024-01-18 22:40:00",
+    "amount": 1595,
+    "payment_method": "wallet",
+    "error_code": "gateway_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 1595,
+    "predicted_recovery_prob": 0.696,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "2e362ea3e1cdd8d6f17ca753",
+      "9fa4c373daaf5b23d3c5cd43"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10
+    ]
+  },
+  {
+    "transaction_id": "txn_000588",
+    "timestamp": "2024-01-18 22:50:00",
+    "amount": 1613,
+    "payment_method": "card",
+    "error_code": "issuer_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.737,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "6c01a25f76cf85ac6b2b7814",
+      "28709b4f9a3f8319dd9a2873",
+      "09bc091e0039b9c8dd0f0806"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000589",
+    "timestamp": "2024-01-18 23:00:00",
+    "amount": 6489,
+    "payment_method": "netbanking",
+    "error_code": "bank_not_available",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 6489,
+    "predicted_recovery_prob": 0.625,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "1cf6b90a7c17018d6fe29599",
+      "8d9415cbd36587cb91fb9e22"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10
+    ]
+  },
+  {
+    "transaction_id": "txn_000590",
+    "timestamp": "2024-01-18 23:10:00",
+    "amount": 9590,
+    "payment_method": "wallet",
+    "error_code": "payment_timed_out",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.375,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer did not complete within specified time. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "96d51259a85ea511e909352c",
+      "399f103529d0d0c43e31563b"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000591",
+    "timestamp": "2024-01-18 23:20:00",
+    "amount": 5470,
+    "payment_method": "upi",
+    "error_code": "authentication_failed",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 5470,
+    "predicted_recovery_prob": 0.487,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": "Payment failed: 3D secure or OTP authentication failed. Please try again using card.",
+    "idempotency_keys_used": [
+      "a8121dad1c5d17dd00a66269"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000592",
+    "timestamp": "2024-01-18 23:30:00",
+    "amount": 5215,
+    "payment_method": "upi",
+    "error_code": "payment_declined_due_to_high_traffic",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.638,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "5d182a604566ce4b447425d7",
+      "0834866f745d00c2542132f8",
+      "6a68399044adc8f153888880"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000593",
+    "timestamp": "2024-01-18 23:40:00",
+    "amount": 4164,
+    "payment_method": "upi",
+    "error_code": "issuer_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 4164,
+    "predicted_recovery_prob": 0.66,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "ddf33a88e6950183d4b981f0",
+      "c4691ef83087d205043f51d6"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10
+    ]
+  },
+  {
+    "transaction_id": "txn_000594",
+    "timestamp": "2024-01-18 23:50:00",
+    "amount": 6372,
+    "payment_method": "card",
+    "error_code": "payment_timed_out",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.499,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Customer did not complete within specified time. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "7ea3faacd762b6ed43aabf59",
+      "50c5efa309ff7bf90b135860"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000595",
+    "timestamp": "2024-01-19 00:00:00",
+    "amount": 3303,
+    "payment_method": "wallet",
+    "error_code": "gateway_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": true,
+    "money_recovered": 3303,
+    "predicted_recovery_prob": 0.607,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "9b7bef43e6f7c4d1a3153475",
+      "d3d817a09304785b2f119f40",
+      "a4f54c74cbbaec7ebeff12ea"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000596",
+    "timestamp": "2024-01-19 00:10:00",
+    "amount": 5272,
+    "payment_method": "wallet",
+    "error_code": "card_expired",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.414,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: The card has expired. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "17443838a95747dd011ed75c",
+      "bff98ef9db114dbb67bdd4b5"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000597",
+    "timestamp": "2024-01-19 00:20:00",
+    "amount": 6400,
+    "payment_method": "netbanking",
+    "error_code": "issuer_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.568,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "4e0b105ddbb6d3aca7d2ec92",
+      "5749da9b605226dabb386799",
+      "9ca63e8f08c9c3c77541c566"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000598",
+    "timestamp": "2024-01-19 00:30:00",
+    "amount": 4871,
+    "payment_method": "card",
+    "error_code": "request_timed_out",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.619,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "45e80ef0a2675186b0a530d9",
+      "c475dad143e6bee435bfe1f0",
+      "4f00e895fb2fd7ee849c51f2"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000599",
+    "timestamp": "2024-01-19 00:40:00",
+    "amount": 7642,
+    "payment_method": "netbanking",
+    "error_code": "gateway_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 7642,
+    "predicted_recovery_prob": 0.539,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "cf6e2dea8f170597c8f07afa",
+      "f519d20fcb3839447ea51dc9"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10
+    ]
+  },
+  {
+    "transaction_id": "txn_000600",
+    "timestamp": "2024-01-19 00:50:00",
+    "amount": 7021,
+    "payment_method": "upi",
+    "error_code": "issuer_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.537,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "2e10bad5736e23162ab96bef",
+      "b2184816317aef3a9f4aef64",
+      "8ca4f550f951e2caedf4d8cd"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000721",
+    "timestamp": "2024-01-19 20:00:00",
+    "amount": 6315,
+    "payment_method": "wallet",
+    "error_code": "bank_not_available",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 6315,
+    "predicted_recovery_prob": 0.59,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "af60d4bb3d74c2254735ab06",
+      "6c9317ba395c9b4fe1032ff2"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10
+    ]
+  },
+  {
+    "transaction_id": "txn_000722",
+    "timestamp": "2024-01-19 20:10:00",
+    "amount": 2387,
+    "payment_method": "upi",
+    "error_code": "server_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.69,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "dd7a4a7c22898737f67322ae",
+      "c91a211e2cd3776193f54bdd",
+      "912a48f589ed24766c21f90f"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000723",
+    "timestamp": "2024-01-19 20:20:00",
+    "amount": 3777,
+    "payment_method": "upi",
+    "error_code": "server_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.661,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "3ac358628cae2df259a53896",
+      "79edae92dd508812bc187b80",
+      "413b8308095f507f5face0f3"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000724",
+    "timestamp": "2024-01-19 20:30:00",
+    "amount": 3390,
+    "payment_method": "card",
+    "error_code": "payment_declined_due_to_high_traffic",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.698,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "176fbd181acdec5ff592b458",
+      "cabb2b8951a08af7212c824d",
+      "c45963de0a33dccdd96a38d4"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000725",
+    "timestamp": "2024-01-19 20:40:00",
+    "amount": 5911,
+    "payment_method": "wallet",
+    "error_code": "server_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 5911,
+    "predicted_recovery_prob": 0.599,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "c21634a91dc807072d25d235"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000726",
+    "timestamp": "2024-01-19 20:50:00",
+    "amount": 9123,
+    "payment_method": "upi",
+    "error_code": "payment_failed",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.541,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "8943c2c89ac8a1eba39cac09",
+      "f3819540aec58205e573f8c4",
+      "63fc1dba9f6c800ff3d93078"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000727",
+    "timestamp": "2024-01-19 21:00:00",
+    "amount": 1110,
+    "payment_method": "wallet",
+    "error_code": "issuer_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 1110,
+    "predicted_recovery_prob": 0.704,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "9b9333a8423fba3e5d0d3f03"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000728",
+    "timestamp": "2024-01-19 21:10:00",
+    "amount": 6399,
+    "payment_method": "wallet",
+    "error_code": "otp_expired",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.443,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: OTP has expired. Please try again using UPI.",
+    "idempotency_keys_used": [
+      "b0699bf1b489ea6234b44bbd",
+      "4312c2b0ae0fc801c82cf47e"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000729",
+    "timestamp": "2024-01-19 21:20:00",
+    "amount": 5922,
+    "payment_method": "netbanking",
+    "error_code": "gateway_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 5922,
+    "predicted_recovery_prob": 0.633,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "d4cc4ef880daf451d4390760",
+      "ded840d80f15a620e0ed9fa7"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10
+    ]
+  },
+  {
+    "transaction_id": "txn_000730",
+    "timestamp": "2024-01-19 21:30:00",
+    "amount": 7524,
+    "payment_method": "netbanking",
+    "error_code": "gateway_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.597,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "435b416f81e6d4e4f751bf5a",
+      "351f348f6991f40f3d0337d9",
+      "2f969fb2e2e1fe0e4de05c3d"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000731",
+    "timestamp": "2024-01-19 21:40:00",
+    "amount": 4971,
+    "payment_method": "netbanking",
+    "error_code": "payment_declined_due_to_high_traffic",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 4971,
+    "predicted_recovery_prob": 0.653,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "7cf1549ee0d4c71287051130"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000732",
+    "timestamp": "2024-01-19 21:50:00",
+    "amount": 6980,
+    "payment_method": "card",
+    "error_code": "server_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 6980,
+    "predicted_recovery_prob": 0.625,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "938df879b5e8ca39c0495d30"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000733",
+    "timestamp": "2024-01-19 22:00:00",
+    "amount": 1440,
+    "payment_method": "wallet",
+    "error_code": "gateway_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 1440,
+    "predicted_recovery_prob": 0.699,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "2f42fb3795938964de589b19",
+      "f2f8cc49d01e34509b5c2816"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10
+    ]
+  },
+  {
+    "transaction_id": "txn_000734",
+    "timestamp": "2024-01-19 22:10:00",
+    "amount": 2133,
+    "payment_method": "wallet",
+    "error_code": "issuer_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.686,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "ff2036d0b07b2b6675a502c4",
+      "f496abc9f7c2bf21bf2ecc54",
+      "e4b12161b1215b103067731f"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000735",
+    "timestamp": "2024-01-19 22:20:00",
+    "amount": 4965,
+    "payment_method": "netbanking",
+    "error_code": "issuer_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 4965,
+    "predicted_recovery_prob": 0.656,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "3c8d29adf93c6946af4f0211"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000736",
+    "timestamp": "2024-01-19 22:30:00",
+    "amount": 2211,
+    "payment_method": "wallet",
+    "error_code": "server_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": true,
+    "money_recovered": 2211,
+    "predicted_recovery_prob": 0.684,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "ccd0b99f58e9266576ad10a3",
+      "86cc622cc88e7a262a6f8b48",
+      "07828b44cc222861e02d7463"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000737",
+    "timestamp": "2024-01-19 22:40:00",
+    "amount": 9907,
+    "payment_method": "card",
+    "error_code": "server_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.561,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "e87250dc18129eab5d6973f2",
+      "d63030f7581460779d31b2bc",
+      "82c9afe74b1bb51779cdf72c"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000738",
+    "timestamp": "2024-01-19 22:50:00",
+    "amount": 2791,
+    "payment_method": "upi",
+    "error_code": "bank_not_available",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 2791,
+    "predicted_recovery_prob": 0.687,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "55c3f4934a8a33621509f505"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000739",
+    "timestamp": "2024-01-19 23:00:00",
+    "amount": 7547,
+    "payment_method": "netbanking",
+    "error_code": "bank_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 7547,
+    "predicted_recovery_prob": 0.602,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "ccfe75b73dd37d8ca434ee9e"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000740",
+    "timestamp": "2024-01-19 23:10:00",
+    "amount": 5239,
+    "payment_method": "upi",
+    "error_code": "bank_not_available",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.637,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "d7d413dbbe72187a68694027",
+      "3ca0675cf98a1db675666cf4",
+      "0e556bebc651b4d18164e1d6"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000741",
+    "timestamp": "2024-01-19 23:20:00",
+    "amount": 8303,
+    "payment_method": "netbanking",
+    "error_code": "payment_failed",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 2,
+    "recovered": true,
+    "money_recovered": 8303,
+    "predicted_recovery_prob": 0.584,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "2e49d2726078649f0efaa81e",
+      "c14cf3ad9677f64b4650bf44"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10
+    ]
+  },
+  {
+    "transaction_id": "txn_000742",
+    "timestamp": "2024-01-19 23:30:00",
+    "amount": 6651,
+    "payment_method": "card",
+    "error_code": "gateway_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 6651,
+    "predicted_recovery_prob": 0.637,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "30d31a111c692e8c9e634de9"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000743",
+    "timestamp": "2024-01-19 23:40:00",
+    "amount": 2406,
+    "payment_method": "card",
+    "error_code": "server_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 2406,
+    "predicted_recovery_prob": 0.724,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "f33e109552d25183b500283b"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000744",
+    "timestamp": "2024-01-19 23:50:00",
+    "amount": 8460,
+    "payment_method": "upi",
+    "error_code": "request_timed_out",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 1,
+    "recovered": true,
+    "money_recovered": 8460,
+    "predicted_recovery_prob": 0.564,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "b18668e0be42661298e390af"
+    ],
+    "backoff_schedule_seconds": [
+      5
+    ]
+  },
+  {
+    "transaction_id": "txn_000745",
+    "timestamp": "2024-01-20 00:00:00",
+    "amount": 2599,
+    "payment_method": "wallet",
+    "error_code": "payment_declined_due_to_high_traffic",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.623,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "87e317dd29c7fcdb5e443b6a",
+      "3c18efc71c12f77b82923006",
+      "5639cabe521481b95ccd64c6"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000746",
+    "timestamp": "2024-01-20 00:10:00",
+    "amount": 1732,
+    "payment_method": "card",
+    "error_code": "issuer_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.686,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "15e8f3e5b711a5ebc0a7b456",
+      "8ee2a6688bbda87f9a1a570b",
+      "e34c884973c2462e1a21feef"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000747",
+    "timestamp": "2024-01-20 00:20:00",
+    "amount": 2791,
+    "payment_method": "upi",
+    "error_code": "payment_risk_check_failed",
+    "root_cause": "CUSTOMER_SIDE",
+    "action_taken": "RETRY_ALTERNATE_METHOD",
+    "max_retries_allowed": 2,
+    "attempts_made": 2,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.488,
+    "escalated": true,
+    "escalation_reason": "Prompt customer directly with a corrective message",
+    "customer_message": "Payment failed: Payment declined due to risk checks. Please try again using card.",
+    "idempotency_keys_used": [
+      "198c957af6c8ca4ebcda3e6c",
+      "3213422e4c52ad767f0f96cf"
+    ],
+    "backoff_schedule_seconds": []
+  },
+  {
+    "transaction_id": "txn_000748",
+    "timestamp": "2024-01-20 00:30:00",
+    "amount": 6422,
+    "payment_method": "wallet",
+    "error_code": "gateway_technical_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": true,
+    "money_recovered": 6422,
+    "predicted_recovery_prob": 0.535,
+    "escalated": false,
+    "escalation_reason": null,
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "00671e449d6a272192b95b7f",
+      "8dfee3d2e769896acb27ab12",
+      "a8b4a1e82eec268c61d6465d"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000749",
+    "timestamp": "2024-01-20 00:40:00",
+    "amount": 4022,
+    "payment_method": "upi",
+    "error_code": "server_error",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.607,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "1be953146713b03d537bedbf",
+      "92af407c7918aaadfe160d70",
+      "dbfd3f58e852fb8c646fe48c"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  },
+  {
+    "transaction_id": "txn_000750",
+    "timestamp": "2024-01-20 00:50:00",
+    "amount": 8365,
+    "payment_method": "wallet",
+    "error_code": "payment_failed",
+    "root_cause": "SYSTEM_SIDE",
+    "action_taken": "EXPONENTIAL_BACKOFF",
+    "max_retries_allowed": 3,
+    "attempts_made": 3,
+    "recovered": false,
+    "money_recovered": 0,
+    "predicted_recovery_prob": 0.489,
+    "escalated": true,
+    "escalation_reason": "Escalate to ops / infra on-call (system may still be degraded)",
+    "customer_message": null,
+    "idempotency_keys_used": [
+      "ff378549e1b50120b69acd96",
+      "d0ba91e5315ee7dad70893ed",
+      "09f68755d5d3bc63f70187c3"
+    ],
+    "backoff_schedule_seconds": [
+      5,
+      10,
+      20
+    ]
+  }
+]

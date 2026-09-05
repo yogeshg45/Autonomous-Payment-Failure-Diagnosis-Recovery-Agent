@@ -1,0 +1,7 @@
+flask
+python-dotenv
+pandas
+numpy
+scikit-learn==1.8.0
+groq
+razorpay

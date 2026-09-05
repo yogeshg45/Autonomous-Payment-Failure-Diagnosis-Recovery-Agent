@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Razorpay Checkout.js Error Scenario Tester</title>
+</head>
+<body>
+  <h2>Razorpay Buildthon — Error Scenario Tester</h2>
+  <p>Enter your Test Key ID, an amount, and click Pay. Use one of the
+     documented test cards below at the checkout, then enter an OTP
+     of 4-10 digits (success) or under 4 digits (fail) as instructed
+     by the checkout page.</p>
+
+  <p><b>Key ID:</b> <input type="text" id="keyId" placeholder="rzp_test_..." size="30"></p>
+  <p><b>Amount (INR):</b> <input type="number" id="amount" value="100"></p>
+  <p><b>Note:</b> <input type="text" id="note" value="error_scenario_test"></p>
+  <button onclick="pay()">Pay</button>
+
+  <div style="margin-top:20px; font-family:monospace; white-space:pre-wrap;" id="result"></div>
+
+  <h3>Reference: cards to try (any CVV, any future expiry)</h3>
+  <table border="1" cellpadding="6">
+    <tr><th>Expected error_reason</th><th>Visa</th><th>Mastercard</th></tr>
+    <tr><td>payment_timed_out</td><td>4100 2800 0009 0000</td><td>5305 6200 0006 0000</td></tr>
+    <tr><td>insufficient_fund</td><td>4100 2800 0008 0001</td><td>5305 6200 0005 0001</td></tr>
+    <tr><td>payment_cancelled</td><td>4100 2800 0007 0002</td><td>5305 6200 0004 0002</td></tr>
+    <tr><td>card_declined</td><td>4100 2800 0006 0003</td><td>5305 6200 0003 0003</td></tr>
+    <tr><td>card_disabled_for_online_payments</td><td>4100 2800 0003 0006</td><td>5305 6200 0000 0006</td></tr>
+    <tr><td>card_number_invalid</td><td>4100 2800 0001 0008</td><td>5305 6200 0008 0008</td></tr>
+    <tr><td>gateway_technical_error</td><td>4100 2800 0002 0007</td><td>5305 6200 0009 0007</td></tr>
+    <tr><td>authentication_failed</td><td>4100 2800 0000 0009</td><td>5305 6200 0007 0009</td></tr>
+    <tr><td>SUCCESS (domestic)</td><td>4100 2800 0000 1007</td><td>5500 6700 0000 1002</td></tr>
+  </table>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    function pay() {
+      const keyId = document.getElementById('keyId').value;
+      const amountRupees = parseFloat(document.getElementById('amount').value);
+      const note = document.getElementById('note').value;
+
+      if (!keyId) { alert('Enter your test Key ID first'); return; }
+
+      const options = {
+        key: keyId,
+        amount: Math.round(amountRupees * 100), // paise
+        currency: "INR",
+        name: "Razorpay Buildthon 2026",
+        description: note,
+        handler: function (response) {
+          document.getElementById('result').innerText =
+            "SUCCESS response from Checkout.js:\n" + JSON.stringify(response, null, 2) +
+            "\n\nNow go fetch this payment's full details via your Colab script (client.payment.fetch(payment_id)) to see the real error/status fields Razorpay recorded.";
+        },
+        modal: {
+          ondismiss: function () {
+            document.getElementById('result').innerText =
+              "Checkout was closed/failed. Go to your Razorpay Dashboard > Transactions (Test Mode) " +
+              "to see the failed attempt, or rerun fetch_recent_payments() in Colab to pull its JSON.";
+          }
+        },
+        theme: { color: "#3399cc" }
+      };
+
+      const rzp = new Razorpay(options);
+      rzp.on('payment.failed', function (response) {
+        document.getElementById('result').innerText =
+          "FAILURE response from Checkout.js:\n" + JSON.stringify(response.error, null, 2);
+      });
+      rzp.open();
+    }
+  </script>
+</body>
+</html>

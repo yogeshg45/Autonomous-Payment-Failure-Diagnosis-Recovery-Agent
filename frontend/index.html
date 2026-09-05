@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Revenue Recovery — Razorpay Buildthon 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <span class="brand-mark">R</span>
+      <span class="brand-name">Recovery<em>AI</em></span>
+    </div>
+
+    <nav class="sidebar__nav" role="tablist" aria-label="Dashboard sections">
+      <button class="navlink is-active" role="tab" aria-selected="true" data-tab="batch">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M3 13.5V16h2.5l7.4-7.4-2.5-2.5L3 13.5Zm11.7-8.4c.4-.4.4-1 0-1.4l-1.4-1.4c-.4-.4-1-.4-1.4 0l-1.2 1.2 2.8 2.8 1.2-1.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        Overview
+      </button>
+      <button class="navlink" role="tab" aria-selected="false" data-tab="audit">
+        <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M6.5 7.5h7M6.5 10h7M6.5 12.5h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        Transactions
+      </button>
+      <button class="navlink" role="tab" aria-selected="false" data-tab="entries">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M4 4h12v12H4V4Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M7 8h6M7 11h6M7 14h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        Error Guide
+      </button>
+      <button class="navlink" role="tab" aria-selected="false" data-tab="qa">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M3 4h14v9H8.5L5 16.5V13H3V4Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        Support Chat
+      </button>
+      <button class="navlink" role="tab" aria-selected="false" data-tab="agent">
+        <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="6.2" r="2.7" stroke="currentColor" stroke-width="1.3"/><path d="M4 16.5c0-3 2.7-5 6-5s6 2 6 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        Recovery Agent
+      </button>
+      <button class="navlink" role="tab" aria-selected="false" data-tab="razorpay">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M6 3 4 13h4.2L7 17l7-9h-4.5L11 3H6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        Live API
+      </button>
+    </nav>
+
+    <div class="sidebar__footer">
+      <p>Track 03 · Razorpay Buildthon 2026</p>
+      <p class="sidebar__footer-sub">Payment degradation → root cause → recovery</p>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main">
+
+    <header class="topbar">
+      <div class="topbar__heading">
+        <h1 id="pageTitle">Overview</h1>
+        <p id="pageSubtitle">Live snapshot of the recovery pipeline's last batch run.</p>
+      </div>
+      <div class="topbar__status" id="statusStrip" aria-live="polite"></div>
+    </header>
+
+    <main class="content">
+
+      <!-- ============ TAB 1: BATCH RESULTS ============ -->
+      <section class="panel is-active" id="panel-batch" role="tabpanel">
+
+        <p class="empty-state" id="heroEmpty" hidden>No results yet — run the pipeline steps from the README, then reload this page.</p>
+
+        <div class="stat-grid" id="heroStats" hidden>
+          <div class="stat-card">
+            <span class="stat-card__label">Transactions processed</span>
+            <span class="stat-card__value" id="statProcessed">—</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__label">Failed transactions</span>
+            <span class="stat-card__value" id="statFailed">—</span>
+          </div>
+          <div class="stat-card stat-card--accent">
+            <span class="stat-card__label">Amount recovered</span>
+            <span class="stat-card__value" id="statRecovered">—</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__label">Recovery rate</span>
+            <span class="stat-card__value" id="statRate">—</span>
+          </div>
+          <div class="stat-card stat-card--warn">
+            <span class="stat-card__label">Escalations</span>
+            <span class="stat-card__value" id="statEscalations">—</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__header">
+            <h2>Degradation alerts</h2>
+            <p>Moments the detector flagged a real drop in success rate against the rolling baseline.</p>
+          </div>
+          <div class="table-wrap">
+            <table id="alertsTable">
+              <thead><tr><th>No.</th><th>At transaction</th><th>Timestamp</th><th>Baseline</th><th>Current</th><th>Drop</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="table-empty" id="alertsEmpty" hidden>No degradation alerts recorded.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__header">
+            <h2>Recovery by root cause</h2>
+            <p>Where the money went, split by why the payment failed in the first place.</p>
+          </div>
+          <div class="split">
+            <div class="table-wrap">
+              <table id="rootCauseTable">
+                <thead><tr><th>Root cause</th><th>Failed</th><th>Recovered</th><th>₹ Recovered</th><th>₹ At risk</th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div class="chart-wrap">
+              <canvas id="rootCauseChart" height="220"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__header">
+            <h2>Stopping rules enforced</h2>
+          </div>
+          <p class="panel__caption" id="stoppingRulesText">—</p>
+        </div>
+      </section>
+
+      <!-- ============ TAB 2: AUDIT TRAIL ============ -->
+      <section class="panel" id="panel-audit" role="tabpanel">
+        <div class="card">
+          <div class="filters">
+            <fieldset id="causeFilters" class="filters__causes"><legend>Root cause</legend></fieldset>
+            <label class="filters__outcome">
+              <span>Outcome</span>
+              <select id="outcomeFilter">
+                <option value="all">All</option>
+                <option value="recovered">Recovered</option>
+                <option value="escalated">Escalated</option>
+              </select>
+            </label>
+          </div>
+          <p class="table-caption" id="auditCount">—</p>
+          <div class="table-wrap table-wrap--scroll">
+            <table id="auditTable">
+              <thead>
+                <tr>
+                  <th>No.</th><th>Transaction</th><th>Amount</th><th>Method</th><th>Error code</th>
+                  <th>Root cause</th><th>Action</th><th>Attempts</th><th>Outcome</th><th>Escalation</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TAB: ERROR GUIDE (panel-friendly explanations) ============ -->
+      <section class="panel" id="panel-entries" role="tabpanel">
+        <div class="card">
+          <div class="card__header">
+            <h2>What actually went wrong, in plain English</h2>
+            <p>One card per distinct error code seen in this batch — not per transaction. Each
+              explanation is precomputed and cached (<code>outputs/transaction_entries.json</code>),
+              so this tab never depends on a live LLM call working right now.</p>
+          </div>
+          <p class="table-caption" id="entriesEmpty" hidden>
+            No catalog yet. Run <code>python3 src/panel_transaction_entries.py</code> after the batch agent.
+          </p>
+          <div id="entriesGrid" class="entries-grid"></div>
+        </div>
+      </section>
+
+      <!-- ============ TAB 3: TRANSACTION Q&A ============ -->
+      <section class="panel" id="panel-qa" role="tabpanel">
+        <div class="card">
+          <div class="card__header">
+            <h2>Ask about a transaction</h2>
+            <p>Grounded only on that transaction's already-decided audit record. It has no
+              function to trigger a retry or refund — try asking it to anyway.</p>
+          </div>
+          <form id="qaForm" class="form form--inline">
+            <label>
+              <span>Transaction</span>
+              <select id="qaTxnSelect" required></select>
+            </label>
+            <label class="form__grow">
+              <span>Your question</span>
+              <input type="text" id="qaQuestion" value="Why did my payment fail?">
+            </label>
+            <button type="submit" class="btn btn--primary">Ask</button>
+          </form>
+          <div id="qaLog" class="qa-log" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- ============ TAB 4: AUTONOMOUS AGENT ============ -->
+      <section class="panel" id="panel-agent" role="tabpanel">
+        <div class="card">
+          <div class="card__header">
+            <h2>Proof: the stopping rule holds even if you try to break it</h2>
+            <p>Fires 5 retry requests against a transaction capped at 2. Works with no API key — the cap is enforced in code, not in the LLM's compliance.</p>
+          </div>
+          <button class="btn btn--dark" id="proofBtn">Try to force 5 retries on a transaction capped at 2</button>
+          <ul id="proofResults" class="proof-results"></ul>
+          <p id="proofSummary" class="proof-summary" hidden></p>
+        </div>
+
+        <div class="card">
+          <div class="card__header">
+            <h2>Live autonomous run</h2>
+            <p>GPT-OSS-120B (via Groq) decides which tool to call and reasons about why, using the
+              <code>GROQ_API_KEY</code> configured in your <code>.env</code> file. The retry cap
+              and no-retry stopping rule are enforced in the tool functions themselves
+              — proven above — never by the model's own judgment.</p>
+          </div>
+          <form id="agentForm" class="form form--inline">
+            <label class="form__grow">
+              <span>Failed transaction</span>
+              <select id="agentTxnSelect" required></select>
+            </label>
+            <button type="submit" class="btn btn--primary">Run autonomous agent</button>
+          </form>
+          <div id="agentResult" class="agent-result" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- ============ TAB 5: REAL RAZORPAY API ============ -->
+      <section class="panel" id="panel-razorpay" role="tabpanel">
+        <div class="card">
+          <div class="card__header">
+            <h2>Create a real test-mode order</h2>
+            <p>A genuine API call using the <code>RAZORPAY_KEY_ID</code> / <code>RAZORPAY_KEY_SECRET</code>
+              in your <code>.env</code> file — the same call already validated in
+              <code>proof/razorpay_real_data_pull.py</code>. No card details are collected here
+              (that needs Razorpay's hosted Checkout, not a bare server-side call — see the README for why).</p>
+          </div>
+          <form id="razorpayForm" class="form form--inline">
+            <label>
+              <span>Amount (INR)</span>
+              <input type="number" id="rpAmount" min="1" value="100" required>
+            </label>
+            <button type="submit" class="btn btn--primary">Create real order</button>
+          </form>
+          <pre id="razorpayResult" class="receipt" hidden></pre>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

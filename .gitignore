@@ -1,0 +1,19 @@
+# Secrets — never commit these
+.env
+*.env
+*api_key*
+*secret*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

@@ -1,0 +1,357 @@
+{
+  "provider_configured": "rule_based",
+  "total_unique_error_codes": 21,
+  "entries": [
+    {
+      "error_code": "issuer_technical_error",
+      "root_cause": "SYSTEM_SIDE",
+      "technical_description": "Technical error at card issuer.",
+      "plain_english": "What happened: Technical error at card issuer. Why it's grouped here: this is a temporary issue with the payment network or gateway, not the customer's fault. What we did: automatically tried again using exponential backoff, within a fixed, safe number of attempts. Scale: this happened 14 time(s) in this batch, \u20b964,875 at risk, \u20b932,310 recovered so far.",
+      "action_taken": "EXPONENTIAL_BACKOFF",
+      "occurrences": 14,
+      "amount_at_risk_inr": 64875,
+      "amount_recovered_inr": 32310,
+      "recovery_rate_pct": 50.0,
+      "sample_transaction_ids": [
+        "txn_000146",
+        "txn_000296",
+        "txn_000574"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "gateway_technical_error",
+      "root_cause": "SYSTEM_SIDE",
+      "technical_description": "Technical error at payment gateway.",
+      "plain_english": "What happened: Technical error at payment gateway. Why it's grouped here: this is a temporary issue with the payment network or gateway, not the customer's fault. What we did: automatically tried again using exponential backoff, within a fixed, safe number of attempts. Scale: this happened 13 time(s) in this batch, \u20b975,331 at risk, \u20b958,578 recovered so far.",
+      "action_taken": "EXPONENTIAL_BACKOFF",
+      "occurrences": 13,
+      "amount_at_risk_inr": 75331,
+      "amount_recovered_inr": 58578,
+      "recovery_rate_pct": 84.6,
+      "sample_transaction_ids": [
+        "txn_000282",
+        "txn_000293",
+        "txn_000433"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "server_error",
+      "root_cause": "SYSTEM_SIDE",
+      "technical_description": "Technical error at Razorpay's server.",
+      "plain_english": "What happened: Technical error at Razorpay's server. Why it's grouped here: this is a temporary issue with the payment network or gateway, not the customer's fault. What we did: automatically tried again using exponential backoff, within a fixed, safe number of attempts. Scale: this happened 12 time(s) in this batch, \u20b961,379 at risk, \u20b932,065 recovered so far.",
+      "action_taken": "EXPONENTIAL_BACKOFF",
+      "occurrences": 12,
+      "amount_at_risk_inr": 61379,
+      "amount_recovered_inr": 32065,
+      "recovery_rate_pct": 58.3,
+      "sample_transaction_ids": [
+        "txn_000280",
+        "txn_000286",
+        "txn_000571"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "transaction_daily_limit_exceeded",
+      "root_cause": "CUSTOMER_SIDE",
+      "technical_description": "Customer has exceeded daily transaction limit.",
+      "plain_english": "What happened: Customer has exceeded daily transaction limit. Why it's grouped here: this is something on the customer's end (their card, balance, or details). What we did: automatically tried again using retry alternate method, within a fixed, safe number of attempts. Scale: this happened 11 time(s) in this batch, \u20b968,430 at risk, \u20b935,362 recovered so far.",
+      "action_taken": "RETRY_ALTERNATE_METHOD",
+      "occurrences": 11,
+      "amount_at_risk_inr": 68430,
+      "amount_recovered_inr": 35362,
+      "recovery_rate_pct": 54.5,
+      "sample_transaction_ids": [
+        "txn_000145",
+        "txn_000269",
+        "txn_000273"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "bank_not_available",
+      "root_cause": "SYSTEM_SIDE",
+      "technical_description": "Bank not available due to downtime.",
+      "plain_english": "What happened: Bank not available due to downtime. Why it's grouped here: this is a temporary issue with the payment network or gateway, not the customer's fault. What we did: automatically tried again using exponential backoff, within a fixed, safe number of attempts. Scale: this happened 10 time(s) in this batch, \u20b967,771 at risk, \u20b923,532 recovered so far.",
+      "action_taken": "EXPONENTIAL_BACKOFF",
+      "occurrences": 10,
+      "amount_at_risk_inr": 67771,
+      "amount_recovered_inr": 23532,
+      "recovery_rate_pct": 40.0,
+      "sample_transaction_ids": [
+        "txn_000148",
+        "txn_000272",
+        "txn_000429"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "payment_risk_check_failed",
+      "root_cause": "CUSTOMER_SIDE",
+      "technical_description": "Payment declined due to risk checks.",
+      "plain_english": "What happened: Payment declined due to risk checks. Why it's grouped here: this is something on the customer's end (their card, balance, or details). What we did: automatically tried again using retry alternate method, within a fixed, safe number of attempts. Scale: this happened 9 time(s) in this batch, \u20b942,327 at risk, \u20b918,300 recovered so far.",
+      "action_taken": "RETRY_ALTERNATE_METHOD",
+      "occurrences": 9,
+      "amount_at_risk_inr": 42327,
+      "amount_recovered_inr": 18300,
+      "recovery_rate_pct": 33.3,
+      "sample_transaction_ids": [
+        "txn_000270",
+        "txn_000294",
+        "txn_000299"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "payment_declined_due_to_high_traffic",
+      "root_cause": "SYSTEM_SIDE",
+      "technical_description": "Payment declined due to high traffic.",
+      "plain_english": "What happened: Payment declined due to high traffic. Why it's grouped here: this is a temporary issue with the payment network or gateway, not the customer's fault. What we did: automatically tried again using exponential backoff, within a fixed, safe number of attempts. Scale: this happened 9 time(s) in this batch, \u20b936,820 at risk, \u20b922,969 recovered so far.",
+      "action_taken": "EXPONENTIAL_BACKOFF",
+      "occurrences": 9,
+      "amount_at_risk_inr": 36820,
+      "amount_recovered_inr": 22969,
+      "recovery_rate_pct": 55.6,
+      "sample_transaction_ids": [
+        "txn_000274",
+        "txn_000283",
+        "txn_000437"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "payment_failed",
+      "root_cause": "SYSTEM_SIDE",
+      "technical_description": "Payment failed at bank/gateway, no specific code.",
+      "plain_english": "What happened: Payment failed at bank/gateway, no specific code. Why it's grouped here: this is a temporary issue with the payment network or gateway, not the customer's fault. What we did: automatically tried again using exponential backoff, within a fixed, safe number of attempts. Scale: this happened 9 time(s) in this batch, \u20b955,472 at risk, \u20b914,473 recovered so far.",
+      "action_taken": "EXPONENTIAL_BACKOFF",
+      "occurrences": 9,
+      "amount_at_risk_inr": 55472,
+      "amount_recovered_inr": 14473,
+      "recovery_rate_pct": 33.3,
+      "sample_transaction_ids": [
+        "txn_000279",
+        "txn_000297",
+        "txn_000572"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "insufficient_funds",
+      "root_cause": "CUSTOMER_SIDE",
+      "technical_description": "Customer does not have sufficient funds.",
+      "plain_english": "What happened: Customer does not have sufficient funds. Why it's grouped here: this is something on the customer's end (their card, balance, or details). What we did: automatically tried again using retry alternate method, within a fixed, safe number of attempts. Scale: this happened 7 time(s) in this batch, \u20b940,114 at risk, \u20b92,210 recovered so far.",
+      "action_taken": "RETRY_ALTERNATE_METHOD",
+      "occurrences": 7,
+      "amount_at_risk_inr": 40114,
+      "amount_recovered_inr": 2210,
+      "recovery_rate_pct": 14.3,
+      "sample_transaction_ids": [
+        "txn_000295",
+        "txn_000427",
+        "txn_000430"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "incorrect_cvv",
+      "root_cause": "CUSTOMER_SIDE",
+      "technical_description": "Incorrect CVV entered.",
+      "plain_english": "What happened: Incorrect CVV entered. Why it's grouped here: this is something on the customer's end (their card, balance, or details). What we did: automatically tried again using retry alternate method, within a fixed, safe number of attempts. Scale: this happened 6 time(s) in this batch, \u20b938,304 at risk, \u20b922,096 recovered so far.",
+      "action_taken": "RETRY_ALTERNATE_METHOD",
+      "occurrences": 6,
+      "amount_at_risk_inr": 38304,
+      "amount_recovered_inr": 22096,
+      "recovery_rate_pct": 66.7,
+      "sample_transaction_ids": [
+        "txn_000143",
+        "txn_000275",
+        "txn_000292"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "otp_expired",
+      "root_cause": "CUSTOMER_SIDE",
+      "technical_description": "OTP has expired.",
+      "plain_english": "What happened: OTP has expired. Why it's grouped here: this is something on the customer's end (their card, balance, or details). What we did: automatically tried again using retry alternate method, within a fixed, safe number of attempts. Scale: this happened 6 time(s) in this batch, \u20b928,935 at risk, \u20b90 recovered so far.",
+      "action_taken": "RETRY_ALTERNATE_METHOD",
+      "occurrences": 6,
+      "amount_at_risk_inr": 28935,
+      "amount_recovered_inr": 0,
+      "recovery_rate_pct": 0.0,
+      "sample_transaction_ids": [
+        "txn_000276",
+        "txn_000281",
+        "txn_000284"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "authentication_failed",
+      "root_cause": "CUSTOMER_SIDE",
+      "technical_description": "3D secure or OTP authentication failed.",
+      "plain_english": "What happened: 3D secure or OTP authentication failed. Why it's grouped here: this is something on the customer's end (their card, balance, or details). What we did: automatically tried again using retry alternate method, within a fixed, safe number of attempts. Scale: this happened 5 time(s) in this batch, \u20b933,801 at risk, \u20b914,684 recovered so far.",
+      "action_taken": "RETRY_ALTERNATE_METHOD",
+      "occurrences": 5,
+      "amount_at_risk_inr": 33801,
+      "amount_recovered_inr": 14684,
+      "recovery_rate_pct": 40.0,
+      "sample_transaction_ids": [
+        "txn_000144",
+        "txn_000420",
+        "txn_000422"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "card_expired",
+      "root_cause": "CUSTOMER_SIDE",
+      "technical_description": "The card has expired.",
+      "plain_english": "What happened: The card has expired. Why it's grouped here: this is something on the customer's end (their card, balance, or details). What we did: automatically tried again using retry alternate method, within a fixed, safe number of attempts. Scale: this happened 4 time(s) in this batch, \u20b918,387 at risk, \u20b98,780 recovered so far.",
+      "action_taken": "RETRY_ALTERNATE_METHOD",
+      "occurrences": 4,
+      "amount_at_risk_inr": 18387,
+      "amount_recovered_inr": 8780,
+      "recovery_rate_pct": 50.0,
+      "sample_transaction_ids": [
+        "txn_000268",
+        "txn_000424",
+        "txn_000447"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "payment_timed_out",
+      "root_cause": "CUSTOMER_SIDE",
+      "technical_description": "Customer did not complete within specified time.",
+      "plain_english": "What happened: Customer did not complete within specified time. Why it's grouped here: this is something on the customer's end (their card, balance, or details). What we did: automatically tried again using retry alternate method, within a fixed, safe number of attempts. Scale: this happened 4 time(s) in this batch, \u20b931,397 at risk, \u20b97,751 recovered so far.",
+      "action_taken": "RETRY_ALTERNATE_METHOD",
+      "occurrences": 4,
+      "amount_at_risk_inr": 31397,
+      "amount_recovered_inr": 7751,
+      "recovery_rate_pct": 25.0,
+      "sample_transaction_ids": [
+        "txn_000271",
+        "txn_000291",
+        "txn_000590"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "transaction_limit_exceeded",
+      "root_cause": "CUSTOMER_SIDE",
+      "technical_description": "Customer has exceeded credit/debit limit on card.",
+      "plain_english": "What happened: Customer has exceeded credit/debit limit on card. Why it's grouped here: this is something on the customer's end (their card, balance, or details). What we did: automatically tried again using retry alternate method, within a fixed, safe number of attempts. Scale: this happened 3 time(s) in this batch, \u20b921,225 at risk, \u20b90 recovered so far.",
+      "action_taken": "RETRY_ALTERNATE_METHOD",
+      "occurrences": 3,
+      "amount_at_risk_inr": 21225,
+      "amount_recovered_inr": 0,
+      "recovery_rate_pct": 0.0,
+      "sample_transaction_ids": [
+        "txn_000149",
+        "txn_000444",
+        "txn_000449"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "incorrect_otp",
+      "root_cause": "CUSTOMER_SIDE",
+      "technical_description": "Customer entered incorrect OTP.",
+      "plain_english": "What happened: Customer entered incorrect OTP. Why it's grouped here: this is something on the customer's end (their card, balance, or details). What we did: automatically tried again using retry alternate method, within a fixed, safe number of attempts. Scale: this happened 3 time(s) in this batch, \u20b911,450 at risk, \u20b90 recovered so far.",
+      "action_taken": "RETRY_ALTERNATE_METHOD",
+      "occurrences": 3,
+      "amount_at_risk_inr": 11450,
+      "amount_recovered_inr": 0,
+      "recovery_rate_pct": 0.0,
+      "sample_transaction_ids": [
+        "txn_000278",
+        "txn_000421",
+        "txn_000445"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "debit_instrument_blocked",
+      "root_cause": "CUSTOMER_SIDE",
+      "technical_description": "The card has been blocked by issuer or customer.",
+      "plain_english": "What happened: The card has been blocked by issuer or customer. Why it's grouped here: this is something on the customer's end (their card, balance, or details). What we did: automatically tried again using retry alternate method, within a fixed, safe number of attempts. Scale: this happened 3 time(s) in this batch, \u20b915,722 at risk, \u20b94,804 recovered so far.",
+      "action_taken": "RETRY_ALTERNATE_METHOD",
+      "occurrences": 3,
+      "amount_at_risk_inr": 15722,
+      "amount_recovered_inr": 4804,
+      "recovery_rate_pct": 33.3,
+      "sample_transaction_ids": [
+        "txn_000287",
+        "txn_000428",
+        "txn_000586"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "bank_technical_error",
+      "root_cause": "SYSTEM_SIDE",
+      "technical_description": "Bank/CBS facing technical problems.",
+      "plain_english": "What happened: Bank/CBS facing technical problems. Why it's grouped here: this is a temporary issue with the payment network or gateway, not the customer's fault. What we did: automatically tried again using exponential backoff, within a fixed, safe number of attempts. Scale: this happened 2 time(s) in this batch, \u20b915,344 at risk, \u20b915,344 recovered so far.",
+      "action_taken": "EXPONENTIAL_BACKOFF",
+      "occurrences": 2,
+      "amount_at_risk_inr": 15344,
+      "amount_recovered_inr": 15344,
+      "recovery_rate_pct": 100.0,
+      "sample_transaction_ids": [
+        "txn_000443",
+        "txn_000739"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "request_timed_out",
+      "root_cause": "SYSTEM_SIDE",
+      "technical_description": "Request timed out.",
+      "plain_english": "What happened: Request timed out. Why it's grouped here: this is a temporary issue with the payment network or gateway, not the customer's fault. What we did: automatically tried again using exponential backoff, within a fixed, safe number of attempts. Scale: this happened 2 time(s) in this batch, \u20b913,331 at risk, \u20b98,460 recovered so far.",
+      "action_taken": "EXPONENTIAL_BACKOFF",
+      "occurrences": 2,
+      "amount_at_risk_inr": 13331,
+      "amount_recovered_inr": 8460,
+      "recovery_rate_pct": 50.0,
+      "sample_transaction_ids": [
+        "txn_000598",
+        "txn_000744"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "invalid_request",
+      "root_cause": "MERCHANT_SIDE",
+      "technical_description": "The request is invalid.",
+      "plain_english": "What happened: The request is invalid. Why it's grouped here: this is a configuration or business-rule issue on our side that a retry cannot fix. What we did: nothing automatic \u2014 retrying would not help, so it was flagged for manual review instead. Scale: this happened 1 time(s) in this batch, \u20b94,185 at risk, \u20b90 recovered so far.",
+      "action_taken": "NO_RETRY",
+      "occurrences": 1,
+      "amount_at_risk_inr": 4185,
+      "amount_recovered_inr": 0,
+      "recovery_rate_pct": 0.0,
+      "sample_transaction_ids": [
+        "txn_000147"
+      ],
+      "explained_by": "rule_based"
+    },
+    {
+      "error_code": "invalid_order_id",
+      "root_cause": "MERCHANT_SIDE",
+      "technical_description": "Order ID missing or invalid.",
+      "plain_english": "What happened: Order ID missing or invalid. Why it's grouped here: this is a configuration or business-rule issue on our side that a retry cannot fix. What we did: nothing automatic \u2014 retrying would not help, so it was flagged for manual review instead. Scale: this happened 1 time(s) in this batch, \u20b99,486 at risk, \u20b90 recovered so far.",
+      "action_taken": "NO_RETRY",
+      "occurrences": 1,
+      "amount_at_risk_inr": 9486,
+      "amount_recovered_inr": 0,
+      "recovery_rate_pct": 0.0,
+      "sample_transaction_ids": [
+        "txn_000150"
+      ],
+      "explained_by": "rule_based"
+    }
+  ]
+}
